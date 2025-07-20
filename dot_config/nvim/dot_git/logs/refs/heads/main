@@ -1,0 +1,4 @@
+0000000000000000000000000000000000000000 bfa12005c8e5aec3349de3ece8be6a72dea980bc cyan <bdwllmsn@gmail.com> 1751912149 +0000	clone: from https://github.com/the-color-cyan/nvim-conf
+bfa12005c8e5aec3349de3ece8be6a72dea980bc 1e81afdf67640336fb2c904facf03f557ce6baf4 cyan <bdwllmsn@gmail.com> 1752354762 -0500	commit: nix languagu package added
+1e81afdf67640336fb2c904facf03f557ce6baf4 354b8dae91367d55e5c55ba19436cf98d11caf28 cyan <bdwllmsn@gmail.com> 1752460556 -0500	pull --no-edit: Merge made by the 'ort' strategy.
+354b8dae91367d55e5c55ba19436cf98d11caf28 700375ff537e2355bd94612d687f421f9811e2f2 cyan <bdwllmsn@gmail.com> 1752520864 -0500	commit: nvim-cmp not working yet but will fix later
