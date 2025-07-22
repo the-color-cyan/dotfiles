@@ -7,7 +7,7 @@ return {
 	},
 	opts = {
 		keymaps = {
-			accept_suggestion = nil, -- handled by nvim-cmp / blink.cmp
+			accept_suggestion = "<S-Space>",
 			accept_word = "<C-CR>",
 		},
 		disable_inline_completion = vim.g.ai_cmp,
