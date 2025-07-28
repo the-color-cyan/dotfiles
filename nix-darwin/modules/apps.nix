@@ -5,10 +5,9 @@
   #
   #  Install all apps and packages here.
   #
-  #  NOTE: Your can find all available options in:
+  #  NOTE: You can find all available options in:
   #    https://daiderd.com/nix-darwin/manual/index.html
   #
-  # TODO Fell free to modify this file to fit your needs.
   #
   ##########################################################################
 
@@ -19,22 +18,39 @@
   #
   # Related Discussion: https://discourse.nixos.org/t/darwin-again/29331
   environment = {
+    # PACKAGES
     systemPackages = with pkgs; [
+      # gui apps
+      qutebrowser
+      # yabai
+
+      # ani-cli
+      ani-cli
+      iina
+      aria2
+      yt-dlp
+
+      # misc
       chezmoi
       fastfetch
       btop
       ripgrep
       fd
       fzf
-      dwt1-shell-color-scripts
       bat
-      oh-my-zsh
       pkg-config
-      apple-sdk
+      direnv
+      kitty.kitten
+
+      # shell
+      starship
+      oh-my-zsh
+      dwt1-shell-color-scripts
 
       # editors
       vim
       neovim
+      zed-editor
 
       # version control
       git
@@ -44,8 +60,7 @@
       # language servers
       nil
 
-      # C/C++
-      gcc
+      # c/c++
       clang
       cmake
 
@@ -66,24 +81,44 @@
       rustc
       cargo
       rust-analyzer
+      rustfmt
 
-      #dotnet
+      # dotnet
       dotnet-sdk
+
+      # libraries
+      # darwin.libiconv
+      # darwin.libiconv.out
+      # darwin.libiconv.dev
     ];
 
-    # variables = {
-    #   # libinv rust environment fix
-    #   LIBRARY_PATH = "${pkgs.libiconv}/lib";
-    #   RUSTFLAGS = "-L ${pkgs.libiconv}/lib";
-    #   PKG_CONFIG_PATH = "${pkgs.libiconv}/lib/pkgconfig";
-    # };
+    variables = {
+      # libiconv fix on macOS
+      RUSTFLAGS = "-L ${pkgs.libiconv}/lib";
+      LIBRARY_PATH = "${pkgs.libiconv}/lib";
+      PKG_CONFIG_PATH = "${pkgs.libiconv}/lib/pkgconfig";
+    };
   };
 
+  # PROGRAM OPTIONS
+  programs = {
+    fish = {
+      enable = true;
+      vendor = {
+        functions.enable = true;
+        completions.enable = true;
+        config.enable = true;
+      };
+    };
+  };
+
+  # FONTS
   fonts.packages = with pkgs; [
     nerd-fonts.blex-mono
     font-awesome
   ];
 
+  # HOMEBREW
   homebrew = {
     enable = true;
 
@@ -103,16 +138,22 @@
 
     # `brew install --cask`
     casks = [
-      "firefox"
       "discord"
       "kitty"
+      "wezterm"
+      "cool-retro-term"
+      "firefox"
       "aerospace"
       "android-file-transfer"
       "visual-studio-code"
       "spotify"
       "claude"
       "notchnook"
-      "qutebrowser"
+      "keyboardcleantool"
+      "raycast"
+      "skim"
+      "obsidian"
+      "windows-app"
     ];
   };
 }

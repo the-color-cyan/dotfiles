@@ -1,19 +1,19 @@
 -- override color of dashboard header
 return {
-    "folke/tokyonight.nvim",
-    opts = {
-        on_highlights = function(hl, c)
-            hl.BlinkCmpGhostText = {
-                fg = "#737aa2",
-                bg = "#292e42",
-            }
-            hl.SnacksDashboardHeader = {
-                fg = "#9ece6a",
-            }
-            --hl["SnacksDashboardKey"] = { fg = "#e40046", bold = true }
-            --hl["SnacksDashboardTitle"] = { fg = "#e40046", bold = true }
-        end,
-    },
+	"folke/tokyonight.nvim",
+	opts = {
+		on_highlights = function(hl, c)
+			hl.BlinkCmpGhostText = {
+				fg = "#737aa2",
+				bg = "#292e42",
+			}
+			hl.SnacksDashboardHeader = {
+				fg = "#9ece6a",
+			}
+			--hl["SnacksDashboardKey"] = { fg = "#e40046", bold = true }
+			--hl["SnacksDashboardTitle"] = { fg = "#e40046", bold = true }
+		end,
+	},
 }
 --[[
   bg = "#1a1b26",

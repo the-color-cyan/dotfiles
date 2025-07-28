@@ -1,1 +1,1 @@
-nvim-cmp not working yet but will fix later
+nvim-cmp binds working finally. mason lets the system handle nil_ls

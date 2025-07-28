@@ -1,9 +1,13 @@
+source /etc/fish/config.fish
+
 if status is-interactive
-    # Commands to run in interactive sessions can go here
+    # only show fastfetch at SHLVL <= 2
+    if test "$SHLVL" -le 2
+        fastfetch
+    end
 end
 
 function fish_greeting
-    neofetch
 end
 
 function fish_mode_prompt
@@ -22,4 +26,4 @@ set -g theme_display_user yes
 set -g theme_display_hostname yes
 set -g theme_newline_cursor yes
 
-# starship init fish | source
+starship init fish | source

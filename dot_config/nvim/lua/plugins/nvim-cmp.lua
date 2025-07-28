@@ -8,6 +8,7 @@ local cmp = require("cmp")
 
 return {
 	"hrsh7th/nvim-cmp",
+	priority = 1000,
 	opts = function(_, opts)
 		local mappings = vim.tbl_extend("force", opts.mapping or {}, {
 
@@ -20,12 +21,13 @@ return {
 			end,
 
 			-- Tab only handles snippet_forward and not ai_accept
-			["<tab>"] = function(fallback)
+			["<Tab>"] = function(fallback)
 				local luasnip = require("luasnip")
+				local rawtab = vim.api.nvim_replace_termcodes("<Tab>", true, false, true)
 				if luasnip.expand_or_jumpable() then
 					luasnip.expand_or_jump()
 				else
-					vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", false)
+					vim.api.nvim_feedkeys(rawtab, "n", false)
 				end
 			end,
 
