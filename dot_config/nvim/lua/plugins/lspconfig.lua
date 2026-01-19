@@ -8,19 +8,40 @@ end
 
 return {
 	"neovim/nvim-lspconfig",
-	require("lspconfig").nil_ls.setup({
-		cmd = { "nil" },
-	}),
+	config = function()
+		local lspconfig = require("lspconfig")
+
+		-- nil (nix) - system binary
+		lspconfig.nil_ls.setup({
+			cmd = { "nil" },
+		})
+
+		-- rust - system binary
+		-- lspconfig.rust_analyzer.setup({
+		-- 	cmd = { "rust-analyzer" },
+		-- })
+
+		-- fsautcomplete (f#) - system binary
+		-- lspconfig.fsautocomplete.setup({
+		-- 	cmd = { "fsautocomplete", "--background-service-enabled" },
+		-- })
+	end,
 	opts = {
 		servers = {
-			omnisharp = {
-				mason = false,
-				enabled = false,
-			},
 			nil_ls = {
 				mason = false,
 				enabled = not is_win(),
 			},
+
+			-- rust_analyzer = {
+			-- 	mason = false,
+			-- 	enabled = true,
+			-- },
+
+			-- fsautocomplete = {
+			-- 	mason = false,
+			-- 	enabled = true,
+			-- },
 		},
 	},
 }

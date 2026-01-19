@@ -12,3 +12,11 @@ vim.g.mkdp_port = 6969
 
 -- blink-cmp allow supermaven completions on newline, tab, and space
 vim.g.ai_cmp = false
+
+-- show inline diagnostic text
+vim.diagnostic.config({
+	virtual_text = true,
+	signs = true,
+	underline = true,
+	update_in_insert = false,
+})

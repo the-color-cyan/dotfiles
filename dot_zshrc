@@ -121,3 +121,5 @@ export VISUAL=nvim
 
 # Starship
 # eval "$(starship init zsh)"
+
+# fish

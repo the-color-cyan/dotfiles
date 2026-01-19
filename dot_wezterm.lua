@@ -10,16 +10,20 @@ config.font_size = 14
 config.default_cursor_style = "BlinkingBlock"
 
 config.use_fancy_tab_bar = false
+config.hide_tab_bar_if_only_one_tab = true
 
-local theme = wezterm.color.get_builtin_schemes()["Tokyo Night"]
+config.window_background_opacity = 0.9
+config.macos_window_background_blur = 20
 
-theme.tab_bar.active_tab.underline = "Single"
-theme.tab_bar.active_tab.italic = true
+-- local theme = wezterm.color.get_builtin_schemes()["Tokyo Night"]
 
-config.color_schemes = {
-	["cyan"] = theme,
-}
+-- theme.tab_bar.active_tab.underline = "Single"
+-- theme.tab_bar.active_tab.italic = true
 
-config.color_scheme = "cyan"
+-- config.color_schemes = {
+-- 	["cyan"] = theme,
+-- }
+
+config.color_scheme = "Rosé Pine (Gogh)"
 
 return config

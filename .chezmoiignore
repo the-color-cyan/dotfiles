@@ -1,0 +1,16 @@
+**/.git/
+**/.git/**
+
+**/chezmoi/
+**/chezmoi/**
+
+**/raycast/
+**/raycast/**
+
+**/mpv/
+**/mpv/**
+
+.DS_Store
+.gitignore
+
+

@@ -21,14 +21,8 @@
     # PACKAGES
     systemPackages = with pkgs; [
       # gui apps
-      qutebrowser
+      # qutebrowser
       # yabai
-
-      # ani-cli
-      ani-cli
-      iina
-      aria2
-      yt-dlp
 
       # misc
       chezmoi
@@ -38,9 +32,22 @@
       fd
       fzf
       bat
-      pkg-config
       direnv
-      kitty.kitten
+      pastel
+      caligula
+      tmux
+      zellij
+      exercism
+      tree
+      codecrafters-cli
+      claude-code
+      inetutils
+
+      # ani-cli
+      ani-cli
+      iina
+      aria2
+      yt-dlp
 
       # shell
       starship
@@ -50,7 +57,6 @@
       # editors
       vim
       neovim
-      zed-editor
 
       # version control
       git
@@ -82,9 +88,23 @@
       cargo
       rust-analyzer
       rustfmt
+      clippy
+
+      # haskell
+      cabal-install
+      ghc
+      stack
 
       # dotnet
-      dotnet-sdk
+      dotnetCorePackages.dotnet_9.sdk
+      mono
+      msbuild
+      roslyn-ls
+      fsautocomplete
+      # omnisharp-roslyn
+
+      # database
+      sqlite
 
       # libraries
       # darwin.libiconv
@@ -104,6 +124,9 @@
   programs = {
     fish = {
       enable = true;
+      package = pkgs.fish.overrideAttrs (oldAttrs: {
+        doCheck = false;
+      });
       vendor = {
         functions.enable = true;
         completions.enable = true;
@@ -134,13 +157,16 @@
 
     # `brew install`
     brews = [
+      "mit-scheme"
+      "pkg-config"
+      "openssl"
     ];
 
     # `brew install --cask`
     casks = [
       "discord"
-      "kitty"
       "wezterm"
+      "ghostty"
       "cool-retro-term"
       "firefox"
       "aerospace"
@@ -154,6 +180,35 @@
       "skim"
       "obsidian"
       "windows-app"
+      "steam"
+      "kindavim"
+      "insomnia"
+      "microsoft-teams"
+      "microsoft-outlook"
+      "microsoft-excel"
+      "slack"
+      "unetbootin"
+      "bitwarden"
+      "vcv-rack"
+      "docker"
+      "docker-desktop"
+      "parallels"
     ];
   };
+
+  nixpkgs.config = {
+    allowUnfree = true;
+    permittedInsecurePackages = [
+      # "dotnet-sdk-6.0.428"
+    ];
+  };
+
+  nixpkgs.overlays = [
+    (final: prev: {
+      fish = prev.fish.overrideAttrs (oldAttrs: {
+        doCheck = false;
+      });
+    })
+  ];
+
 }

@@ -5,6 +5,11 @@ if status is-interactive
     if test "$SHLVL" -le 2
         fastfetch
     end
+
+    # set -gx ZELLIJ_AUTO_ATTACH true
+    # set -gx ZELLIJ_AUTO_EXIT true
+
+    # eval (zellij setup --generate-auto-start fish | string collect)
 end
 
 function fish_greeting

@@ -2,6 +2,7 @@
 return {
 	"folke/tokyonight.nvim",
 	opts = {
+		transparent = true,
 		on_highlights = function(hl, c)
 			hl.BlinkCmpGhostText = {
 				fg = "#737aa2",
